@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comment Page</title> 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #121212;
+      color: white;
+      font-family: 'Roboto Condensed', sans-serif;
+      font-weight: 300;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #1e1e1e;
+      border-radius: 10px;
+    }
+
+    .contact-form input, .contact-form textarea {
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      background-color: #333;
+      color: white;
+    }
+
+    .contact-form button {
+      background-color: #6A0DAD;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #551A8B;
+    }
+
+    #comments-section {
+      max-width: 500px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #1e1e1e;
+      border-radius: 10px;
+    }
+
+    .comment-item {
+      background-color: #2a2a2a;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .backbtn{
+      display: flex;
+      justify-content: flex-start;
+      background-color: #6A0DAD;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: center;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <button class="backbtn" onclick="back()">Back</button>
+  <form class="contact-form" id="contactForm">
+    <h2>Contact Us</h2>
+    <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+
+  <section id="comments-section">
+    <h3>Comments:</h3>
+    <div id="comments-list"></div>
+  </section>
+
+  <script>
+    function back() {
+      window.location.href = 'nav.html';
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+
+      const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
+      const commentsList = document.getElementById('comments-list');
+
+      function displayComments() {
+        commentsList.innerHTML = '';  
+        savedComments.forEach(comment => {
+          const commentItem = document.createElement('div');
+          commentItem.classList.add('comment-item');
+          commentItem.innerHTML = `<strong>${comment.name}</strong> (${comment.email}):<br>${comment.message}`;
+          commentsList.appendChild(commentItem);
+        });
+      }
+
+      displayComments();
+
+
+      document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        const newComment = {
+          name: name,
+          email: email,
+          message: message
+        };
+
+      
+        savedComments.push(newComment);
+        localStorage.setItem('comments', JSON.stringify(savedComments));
+
+       
+        displayComments();
+
+       
+        document.getElementById('contactForm').reset();
+      });
+    });
+  </script>
+
+</body>
+</html>

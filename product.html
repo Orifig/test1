@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #005C59;
+      font-family: 'Roboto Condensed', sans-serif;
+      font-weight: 300;
+    }
+    .container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .product-card {
+      background-color: #f3f3f3;
+      padding: 20px;
+      max-width: 400px;
+      margin: 20px auto;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .product-card img {
+      width: 100%;
+      transition: transform 0.3s ease-in-out;
+    }
+    .product-card img:hover {
+      transform: scale(1.1);
+    }
+    .product-title {
+      font-size: 1.5rem;
+      margin: 10px 0;
+    }
+    .product-price {
+      color: #6A0DAD;
+      font-size: 1.2rem;
+    }
+    .buy-now-btn {
+      background-color: #6A0DAD;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 20px;
+    }
+    .buy-now-btn:hover, .backbtn {
+      background-color: #551A8B;
+    }
+    .backbtn{
+      display: flex;
+      justify-content: flex-start;
+      background-color: #6A0DAD;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: center;
+      font-size: 20px;
+    }
+    p{
+      font-size: 25px;
+    }
+  </style>
+</head>
+<body>
+  <button class="backbtn" onclick="back()">Back</button>
+  <div class="container">
+    <div class="product-card">
+      <img src="img/stanley-original.jpg" alt="Product Image">
+      <h2 class="product-title">Stanley Original</h2>
+      <p>The best cup/tumbler there is!</p>
+      <p class="product-price">$49.99</p>
+      <button class="buy-now-btn" onclick="openbuy()">Buy Now</button>
+    </div>
+  </div>
+  <script>
+    function back(){
+      window.location.href = "nav.html";
+    }
+    function openbuy(){
+      window.open("https://www.stanley1913.com/products/adventure-quencher-travel-tumbler-40-oz?_pos=5&_fid=3d2c31ff3&_ss=c&variant=44559859613823?variant=44559859613823", "_blank");
+    }
+  </script>
+</body>
+</html>

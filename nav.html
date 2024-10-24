@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto Condensed', sans-serif;
+      font-weight: 300;
+      font-size: 30px;
+      background-color: #2F899D;
+    }
+    nav {
+      background-color: #6ED2D4;
+      padding: 10px;
+      border-radius: 15px;
+    }
+    nav ul {
+      display: flex;
+      list-style-type: none;
+      justify-content: space-around;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      transition: background-color 0.3s ease;
+    }
+    nav ul li a:hover {
+      background-color: #551A8B;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 100px;
+      color: white;
+      text-decoration: underline;
+    }
+    .gallery {
+      display: grid;
+      grid-gap: 10px;
+      padding: 10px;
+    }
+    .gallery img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    @media (min-width: 1200px) {
+      .gallery {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (min-width: 768px) and (max-width: 1199px) {
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 767px) {
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="nav.html">Home</a></li>
+      <li><a href="product.html">Products</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="profile.html">Portfolio</a></li>
+      <li><a href="comment.html">Comment</a></li>
+    </ul>
+  </nav>
+  <h1>The Stanley</h1>
+  <div class="gallery">
+    <img src="img/stanley1.jpg" alt="Image 1">
+    <img src="img/stanley2.jpg" alt="Image 2">
+    <img src="img/stanley3.jpg" alt="Image 3">
+    <img src="img/stanley4.jpg" alt="Image 4">
+    <img src="img/stanley5.jpg" alt="Image 5">
+    <img src="img/stanley6.jpg" alt="Image 6">
+  </div>
+</body>
+</html>
